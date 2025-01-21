@@ -1,6 +1,6 @@
 const express = require('express');
-const { verifyToken } = require('../config/jwt-config');
+const { verifyToken } = require('../middleware/jwt-middleware');
 const { addSlots } = require('../controllers/slot-controller');
 const router = express.Router();
-router.post('/slots', verifyToken, addSlots);
+router.post('/:id', verifyToken, addSlots);
 module.exports = router;
